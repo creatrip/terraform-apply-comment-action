@@ -1,0 +1,32 @@
+name: 'Add terraform apply comment'
+description: 'add a terraform apply comment'
+
+inputs:
+  token:
+    description: 'token'
+    required: false
+    default: ${{ github.token }}
+  repository:
+    description: 'repository'
+    required: false
+    default: ${{ github.repository }}
+  issue-number:
+    description: 'issue-number'
+    required: true
+    default: ''
+  directory:
+    description: 'directory'
+    required: true
+    default: ''
+  stdout:
+    description: 'terraform apply outputs.stdout'
+    required: true
+    default: ''
+  stderr:
+    description: 'terraform apply outputs.stderr'
+    required: true
+    default: ''
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
